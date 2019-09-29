@@ -1,6 +1,6 @@
-class CreateStarreds < ActiveRecord::Migration[5.1]
+class CreateStarredItems < ActiveRecord::Migration[5.1]
   def change
-    create_table :starreds do |t|
+    create_table :starred_items do |t|
       t.references :user, foreign_key: true
       t.references :item, foreign_key: true
 

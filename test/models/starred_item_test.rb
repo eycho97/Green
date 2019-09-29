@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StarredTest < ActiveSupport::TestCase
+class StarredItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
