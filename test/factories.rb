@@ -28,7 +28,7 @@ FactoryBot.define do
     username "edcho"
     password "secret"
     password_confirmation "secret"
-    role "admin"
+    role "customer"
     active true
   end
 
