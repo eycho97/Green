@@ -1,8 +1,18 @@
 class Subcat < ApplicationRecord
+  include AppHelpers::Activeable::InstanceMethods
+  extend AppHelpers::Activeable::ClassMethods
 
-  #Relationships
+  # Relationships
   belongs_to :category
   has_many :subcat_items
   has_many :items, through: :subcat_items
+
+  # Scopes
+  scope :alphabetical, -> { order(:name) }
+  scope :for_category, -> (category_id) { where("category_id = ?", category_id) }
+
+  # Validations
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+
 
 end
