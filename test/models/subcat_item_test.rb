@@ -6,7 +6,21 @@ class SubcatItemTest < ActiveSupport::TestCase
   should belong_to(:subcat)
   should belong_to(:item)
   
-  # test "the truth" do
-  #   assert true
-  # end
+  context "Creating Contexts" do 
+    setup do
+      create_categories
+      create_subcats
+      create_items
+      create_subcat_items
+    end
+    
+    teardown do
+      destroy_subcat_items
+      destroy_items
+      destroy_subcats
+      destroy_categories
+    end
+
+  end
+
 end

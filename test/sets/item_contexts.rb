@@ -14,7 +14,7 @@ module Contexts
     end
 
 
-    def delete_items
+    def destroy_items
       @item2.delete
       @item3.delete
       @item4.delete
@@ -25,6 +25,6 @@ module Contexts
       @item9.delete
       @item10.delete
     end
-    
+
   end
 end

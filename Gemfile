@@ -19,6 +19,15 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use a gem for handling pagination
+gem 'will_paginate', '3.1.6'
+
+# Use a gem for handling date validation
+gem 'validates_timeliness', '4.0.2'
+
+# Use simple_form to clean up form views
+gem 'simple_form', '3.5.0'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -33,12 +42,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# UI gems
+gem 'jquery-rails', '4.3.1'
+gem 'jquery-ui-rails', '6.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'factory_bot_rails', '4.8.2'
 end
 
 group :development do
@@ -48,7 +61,27 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'hirb', '0.7.3'
+  gem 'faker', '1.8.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Gems used only in testing
+group :test do
+  gem 'simplecov', '0.15.1'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'minitest'
+  gem 'minitest-rails', '3.0.0'
+  gem 'minitest-reporters', '1.1.19'
+  gem 'rails-controller-testing', '1.0.2'
+  gem 'mocha', require: false
+  gem 'cucumber-rails', '1.5.0', require: false
+  gem 'database_cleaner', '1.6.2'
+  gem 'launchy', '2.4.3'
+end

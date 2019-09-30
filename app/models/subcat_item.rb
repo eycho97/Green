@@ -1,6 +1,6 @@
 class SubcatItem < ApplicationRecord
   # get module to help with some functionality
-  include AppHelpers::Validations
+  # include AppHelpers::Validations
 
   # Relationships
   belongs_to :subcat

@@ -5,7 +5,15 @@ class CategoryTest < ActiveSupport::TestCase
   # test relationships
   should have_many(:subcats)
   
-  # test "the truth" do
-  #   assert true
-  # end
+  context "Creating Contexts" do 
+    setup do
+      create_categories
+    end
+    
+    teardown do
+      destroy_categories
+    end
+
+  end
+
 end

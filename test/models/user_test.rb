@@ -6,7 +6,15 @@ class UserTest < ActiveSupport::TestCase
   should have_many(:starred_items)
   should have_many(:items).through(:starred_items)
   
-  # test "the truth" do
-  #   assert true
-  # end
+  context "Creating Contexts" do 
+    setup do
+      create_users
+    end
+    
+    teardown do
+      destroy_users
+    end
+
+  end
+
 end

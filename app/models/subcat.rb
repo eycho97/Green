@@ -1,6 +1,6 @@
 class Subcat < ApplicationRecord
-  include AppHelpers::Activeable::InstanceMethods
-  extend AppHelpers::Activeable::ClassMethods
+  # include AppHelpers::Activeable::InstanceMethods
+  # extend AppHelpers::Activeable::ClassMethods
 
   # Relationships
   belongs_to :category

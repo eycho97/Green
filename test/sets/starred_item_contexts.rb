@@ -12,7 +12,7 @@ module Contexts
       @st8 = FactoryBot.create(:starred_item, user: @israel, item: @item9)
     end
 
-    def delete_starred_items
+    def destroy_starred_items
       @st1.delete
       @st2.delete
       @st3.delete

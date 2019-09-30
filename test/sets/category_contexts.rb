@@ -9,7 +9,7 @@ module Contexts
       @cat5 = FactoryBot.create(:category, name: 'Home Goods', active: false)
     end
     
-    def delete_categories
+    def destroy_categories
       @cat1.delete
       @cat2.delete
       @cat3.delete

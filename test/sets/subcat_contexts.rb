@@ -15,7 +15,7 @@ module Contexts
       @subcat11 = FactoryBot.create(:subcat, category: @cat4, name: 'Hotels', active: false)
     end
 
-    def delete_subcats
+    def destroy_subcats
       @subcat1.delete
       @subcat2.delete
       @subcat3.delete

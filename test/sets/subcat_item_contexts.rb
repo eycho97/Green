@@ -12,7 +12,7 @@ module Contexts
 
     end
 
-    def delete_subcat_items
+    def destroy_subcat_items
       @si1.delete
       @si2.delete
       @si3.delete

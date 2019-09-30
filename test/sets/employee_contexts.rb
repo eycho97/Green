@@ -7,11 +7,11 @@ module Contexts
       @matt = FactoryBot.create(:user, first_name: "Matt", last_name: "Lee", email: "mlee@gmail.com", username: "mlee", role: "manager")
     end
 
-    def delete_employees
+    def destroy_employees
       @iman.delete
       @alec.delete
       @matt.delete
     end
-    
+
   end
 end

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  include AppHelpers::Activeable::InstanceMethods
-  extend AppHelpers::Activeable::ClassMethods
+  # include AppHelpers::Activeable::InstanceMethods
+  # extend AppHelpers::Activeable::ClassMethods
 
   # For use in authorizing with CanCan
   ROLES = [['Administrator', :admin],['Manager', :manager],['Customer',:customer]]
