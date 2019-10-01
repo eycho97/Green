@@ -19,14 +19,14 @@ class CategoryTest < ActiveSupport::TestCase
     end
 
     #test the scope active
-    # should "show that the scope active works" do
-    #   assert_equal 4, Category.active.all.count
-    # end
+    should "show that the scope active works" do
+      assert_equal 4, Category.active.all.count
+    end
 
-    # #test the scope inactive
-    # should "show that the scope inactive works" do
-    #   assert_equal ['Home Goods'], Category.inactive.all.map(&:name).sort
-    # end
+    #test the scope inactive
+    should "show that the scope inactive works" do
+      assert_equal ['Home Goods'], Category.inactive.all.map(&:name).sort
+    end
 
     # test the scope 'alphabetical'
     should "have a scope to list the categories in alphabetical order of name" do

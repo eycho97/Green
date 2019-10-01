@@ -27,15 +27,15 @@ class ItemTest < ActiveSupport::TestCase
       destroy_categories
     end
 
-    # # test the scope active
-    # should "show that the scope active works" do
-    #   assert_equal 8, Item.active.all.count
-    # end
+    # test the scope active
+    should "show that the scope active works" do
+      assert_equal 8, Item.active.all.count
+    end
 
-    # # test the scope inactive
-    # should "show that the scope inactive works" do
-    #   assert_equal ['Katsuya', 'Nobu'], Item.inactive.all.map(&:title).sort
-    # end
+    # test the scope inactive
+    should "show that the scope inactive works" do
+      assert_equal ['Katsuya', 'Nobu'], Item.inactive.all.map(&:title).sort
+    end
 
     # test the scope alphabetical
     should "have a scope to list the items in alphabetical order of title" do

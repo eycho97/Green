@@ -26,15 +26,15 @@ class UserTest < ActiveSupport::TestCase
       destroy_employees
     end
 
-    # # test the scope active
-    # should "show that the scope active works" do
-    #   assert_equal 6, User.active.all.count
-    # end
+    # test the scope active
+    should "show that the scope active works" do
+      assert_equal 6, User.active.all.count
+    end
 
-    # # test the scope inactive
-    # should "show that the scope inactive works" do
-    #   assert_equal ['Tim'], User.inactive.all.map(&:first_name).sort
-    # end
+    # test the scope inactive
+    should "show that the scope inactive works" do
+      assert_equal ['Darian', 'Tim'], User.inactive.all.map(&:first_name).sort
+    end
 
     # test the scope alphabetical
     should "have a scope to list the user in alphabetical order of last name, first name" do

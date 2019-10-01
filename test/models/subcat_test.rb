@@ -23,15 +23,15 @@ class SubcatTest < ActiveSupport::TestCase
       destroy_categories
     end
 
-    # #test the scope active
-    # should "show that the scope active works" do
-    #   assert_equal 9, Subcat.active.all.count
-    # end
+    #test the scope active
+    should "show that the scope active works" do
+      assert_equal 9, Subcat.active.all.count
+    end
 
-    # #test the scope inactive
-    # should "show that the scope inactive works" do
-    #   assert_equal ['Hotels', 'News'], Subcat.inactive.all.map(&:name).sort
-    # end
+    #test the scope inactive
+    should "show that the scope inactive works" do
+      assert_equal ['Hotels', 'News'], Subcat.inactive.all.map(&:name).sort
+    end
 
     # test the scope 'alphabetical'
     should "have a scope to list the subcats in alphabetical order of name" do

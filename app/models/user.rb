@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # include AppHelpers::Activeable::InstanceMethods
-  # extend AppHelpers::Activeable::ClassMethods
+  include AppHelpers::Activeable::InstanceMethods
+  extend AppHelpers::Activeable::ClassMethods
 
   # use has_secure_password
   has_secure_password
