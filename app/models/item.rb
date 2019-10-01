@@ -9,10 +9,13 @@ class Item < ApplicationRecord
   has_many :users, through: :starred_items
 
   # Scopes
-  scope :alphabetical, -> { order(:name) }
+  scope :alphabetical, -> { order(:title) }
   scope :for_category, -> (subcat) { where(category: subcat) }
+  scope :featured,     -> { where(featured: true)}
+  scope :needs_pic,    -> { where(picture: nil)}
 
   # Validations
-
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :link, presence: true, uniqueness: { case_sensitive: false }
 
 end

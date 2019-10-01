@@ -12,6 +12,7 @@ class Subcat < ApplicationRecord
   scope :for_category, -> (category_id) { where("category_id = ?", category_id) }
 
   # Validations
+  validates_presence_of :category_id
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
 

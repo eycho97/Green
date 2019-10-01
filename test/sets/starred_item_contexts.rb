@@ -5,7 +5,7 @@ module Contexts
       @st1 = FactoryBot.create(:starred_item, user: @bob, item: @item2)
       @st2 = FactoryBot.create(:starred_item, user: @bob, item: @item4)
       @st3 = FactoryBot.create(:starred_item, user: @bob, item: @item6)
-      @st4 = FactoryBot.create(:starred_item, user: @mike, item: @item3)
+      @st4 = FactoryBot.create(:starred_item, user: @mike, item: @item2)
       @st5 = FactoryBot.create(:starred_item, user: @mike, item: @item5)
       @st6 = FactoryBot.create(:starred_item, user: @mike, item: @item7)
       @st7 = FactoryBot.create(:starred_item, user: @israel, item: @item8)

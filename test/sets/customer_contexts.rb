@@ -9,7 +9,7 @@ module Contexts
       @tim = FactoryBot.create(:user, first_name: "Tim", last_name: "Cook", email: "timcook@gmail.com", username: "timcook", active: false)
     end
 
-    def delete_customers
+    def destroy_customers
       @bob.delete
       @mike.delete
       @israel.delete

@@ -6,7 +6,7 @@ module Contexts
       @si2 = FactoryBot.create(:subcat_item, subcat: @subcat1, item: @item3)
       @si3 = FactoryBot.create(:subcat_item, subcat: @subcat1, item: @item4)
       @si4 = FactoryBot.create(:subcat_item, subcat: @subcat1, item: @item5)
-      @si5 = FactoryBot.create(:subcat_item, subcat: @subcat3, item: @item6)
+      @si5 = FactoryBot.create(:subcat_item, subcat: @subcat3, item: @item2)
       @si6 = FactoryBot.create(:subcat_item, subcat: @subcat4, item: @item7)
       @si7 = FactoryBot.create(:subcat_item, subcat: @subcat6, item: @item8)
 

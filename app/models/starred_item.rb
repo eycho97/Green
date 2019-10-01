@@ -11,17 +11,7 @@ class StarredItem < ApplicationRecord
   scope :for_user,   -> (user_id) { where('user_id = ?', user_id)}
 
   # Validations
-  validate :item_is_active_in_system
-  validate :user_is_active_in_system
-
-  # Other methods
-  private
-  def item_is_active_in_system
-    is_active_in_system(:item)
-  end
-
-  def user_is_active_in_system
-    is_active_in_system(:user)
-  end
+  validates :user_id, presence: true, numericality: { greater_than: 0, only_integer: true }
+  validates :item_id, presence: true, numericality: { greater_than: 0, only_integer: true }
 
 end

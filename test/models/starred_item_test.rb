@@ -19,6 +19,16 @@ class StarredItemTest < ActiveSupport::TestCase
       destroy_items
     end
 
+    # test the scope for item
+    should "have a scope to list the saved items for a given item" do
+      assert_equal [@st1, @st4], StarredItem.for_item(@item2).all.sort
+    end
+
+    # test the scope for user
+    should "have a scope to list the saved items for a given user" do
+      assert_equal [@st1, @st2, @st3], StarredItem.for_user(@bob).all.sort
+    end
+
   end
 
 end

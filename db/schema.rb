@@ -40,15 +40,6 @@ ActiveRecord::Schema.define(version: 20190929191850) do
     t.index ["user_id"], name: "index_starred_items_on_user_id"
   end
 
-  create_table "starreds", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_starreds_on_item_id"
-    t.index ["user_id"], name: "index_starreds_on_user_id"
-  end
-
   create_table "subcat_items", force: :cascade do |t|
     t.integer "subcat_id"
     t.integer "item_id"

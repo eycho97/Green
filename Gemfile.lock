@@ -43,6 +43,7 @@ GEM
     ansi (1.5.0)
     arel (8.0.0)
     backports (3.15.0)
+    bcrypt (3.1.12)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -269,6 +270,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   better_errors
   binding_of_caller
   byebug
