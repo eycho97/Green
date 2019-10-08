@@ -43,6 +43,38 @@ class SubcatTest < ActiveSupport::TestCase
       assert_equal ['Casual', 'Cheap Eats', 'Fancy'], Subcat.for_category(@cat2).map(&:name).sort
     end
 
+    # test custom validation category is active in the system
+    should "only allow subcats created when the category is active and in the system" do
+      @badsub1 = FactoryBot.build(:subcat, category: @cat5, name: 'Badsub1')
+      deny @badsub1.valid?
+      @badcat = FactoryBot.build(:category, name: 'Badcat')
+      @badsub2 = FactoryBot.build(:subcat, category: @badcat, name: 'Badsub2')
+      deny @badsub2.valid?
+    end
+
+    should "show that a subcat that has no items can be destroyed" do
+      new_subcat = FactoryBot.create(:subcat, category: @cat4, name: "NewSubcat")
+      new_subcat.reload
+      assert_equal "NewSubcat", new_subcat.name
+      new_subcat.destroy
+      assert new_subcat.destroyed?
+    end
+
+    # should "make sure an improperly destroyed subcat is made inactive" do
+    #   create_items
+    #   create_subcat_items
+    #   assert @subcat1.active
+    #   deny @subcat1.subcat_items.empty?
+    #   @subcat1.destroy
+    #   @subcat1.reload
+    #   # verify the subcat is now inactive
+    #   deny @subcat1.active
+    #   # ... and that the subcat items are still there
+    #   deny @subcat1.subcat_items.empty?
+    #   destroy_subcat_items
+    #   destroy_items
+    # end
+
   end
 
 end

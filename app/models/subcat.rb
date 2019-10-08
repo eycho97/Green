@@ -17,9 +17,28 @@ class Subcat < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validate :category_is_active_in_system
 
+  private
   def category_is_active_in_system
     is_active_in_system(:category)
   end
 
+  # Callbacks
+  before_destroy :is_destroyable?
+  after_rollback :make_inactive_if_trying_to_destroy
+ 
+  # Other methods
+  attr_reader :destroyable
+
+  #Callback methods
+  def is_destroyable?
+    @destroyable = self.subcat_items.empty?
+  end
+
+  def make_inactive_if_trying_to_destroy
+    if !@destroyable.nil? && @destroyable == false
+      self.update_attribute(:active, false)
+    end
+    @destroyable = nil
+  end
 
 end
