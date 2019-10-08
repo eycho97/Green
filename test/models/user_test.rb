@@ -66,7 +66,7 @@ class UserTest < ActiveSupport::TestCase
       assert_equal "Iman Fard", @iman.proper_name
     end
 
-    should "show the number of times a user saved an item" do
+    should "show the number of times a user starred an item" do
       create_categories
       create_subcats
       create_items

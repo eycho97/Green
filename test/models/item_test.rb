@@ -52,6 +52,14 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal ['Local Bob', 'Vintage Clothes'], Item.needs_pic.all.map(&:title).sort
     end
 
+    should "show the number of times an item has been starred" do
+      create_customers
+      create_starred_items
+      assert_equal 2, @item2.number_of_times_starred
+      destroy_starred_items
+      destroy_customers
+    end
+
   end
 
 end

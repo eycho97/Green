@@ -18,4 +18,9 @@ class Item < ApplicationRecord
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :link, presence: true, uniqueness: { case_sensitive: false }
 
+  # method
+  def number_of_times_starred
+    return StarredItem.for_item(self).all.count
+  end
+
 end
