@@ -9,7 +9,7 @@ module Contexts
       @st5 = FactoryBot.create(:starred_item, user: @mike, item: @item5)
       @st6 = FactoryBot.create(:starred_item, user: @mike, item: @item7)
       @st7 = FactoryBot.create(:starred_item, user: @israel, item: @item8)
-      @st8 = FactoryBot.create(:starred_item, user: @israel, item: @item9)
+      @st8 = FactoryBot.create(:starred_item, user: @israel, item: @item5)
     end
 
     def destroy_starred_items
