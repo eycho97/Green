@@ -27,4 +27,17 @@ class User < ApplicationRecord
   validates_confirmation_of :password, on: :create, message: "does not match"
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
 
+  # Other methods
+  def name
+    last_name + ", " + first_name
+  end
+  
+  def proper_name
+    first_name + " " + last_name
+  end
+
+  def number_of_starred_items
+    return StarredItem.for_user(self).all.count
+  end
+
 end

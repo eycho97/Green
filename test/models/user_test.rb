@@ -15,6 +15,19 @@ class UserTest < ActiveSupport::TestCase
   should validate_uniqueness_of(:username).case_insensitive
   should validate_inclusion_of(:role).in_array(%w[admin manager customer])
 
+  # Validating email... #From PATS
+  should allow_value("fred@fred.com").for(:email)
+  should allow_value("fred@andrew.cmu.edu").for(:email)
+  should allow_value("my_fred@fred.org").for(:email)
+  should allow_value("fred123@fred.gov").for(:email)
+  should allow_value("my.fred@fred.net").for(:email)
+  
+  should_not allow_value("fred").for(:email)
+  should_not allow_value("fred@fred,com").for(:email)
+  should_not allow_value("fred@fred.uk").for(:email)
+  should_not allow_value("my fred@fred.com").for(:email)
+  should_not allow_value("fred@fred.con").for(:email)
+
   context "Creating Contexts" do 
     setup do
       create_customers
@@ -41,6 +54,30 @@ class UserTest < ActiveSupport::TestCase
       assert_equal ['Tim', 'Darian', 'Iman', 'Mike', 'Alec', 'Matt', 'Israel', 'Bob'], User.alphabetical.all.map(&:first_name)
     end
 
+    # test the method name
+    should "show that name method works" do
+      assert_equal "Park, Bob", @bob.name
+      assert_equal "Fard, Iman", @iman.name
+    end
+
+    # test the method proper name
+    should "show that proper_name method works" do
+      assert_equal "Bob Park", @bob.proper_name
+      assert_equal "Iman Fard", @iman.proper_name
+    end
+
+    should "show the number of times a user saved an item" do
+      create_categories
+      create_subcats
+      create_items
+      create_starred_items
+      assert_equal 3, @bob.number_of_starred_items
+      destroy_starred_items
+      destroy_items
+      destroy_subcats
+      destroy_categories
+    end
+
     should "require a password for new users" do
       @baduser = FactoryBot.build(:user, first_name: 'Bad', last_name: 'User', email: 'baduser@gmail.com', username: 'baduser', password: nil)
       deny @baduser.valid?
@@ -58,16 +95,7 @@ class UserTest < ActiveSupport::TestCase
       deny @baduser.valid?
     end
 
-    should "deny bad email formats" do
-      @be1 = FactoryBot.build(:user, first_name: "be", last_name: "be1", email: "bp@1@example.com", username: 'baduser',)
-      deny @be1.valid?
-      @be2 = FactoryBot.build(:user, first_name: "be", last_name: "be2", email: "bp 2@example.com", username: 'baduser1',)
-      deny @be2.valid?
-      @be3 = FactoryBot.build(:user, first_name: "be", last_name: "be3", email: "bp2@example.nope", username: 'baduser2',)
-      deny @be3.valid?
-      @be4 = FactoryBot.build(:user, first_name: "be", last_name: "be4", email: "bp2@exam@ple.nope", username: 'baduser3',)
-      deny @be4.valid?
-    end
+
   end
 
 end
