@@ -33,6 +33,30 @@ class CategoryTest < ActiveSupport::TestCase
       assert_equal ['Clothing', 'Energy', 'Food', 'Home Goods', 'Restaurants'], Category.alphabetical.all.map(&:name)
     end
 
+    should "make sure you can't create a category with a duplicate name" do
+      @badcat = FactoryBot.build(:category, name: 'Clothing')
+      deny @badcat.valid?
+    end
+
+    should "show that a category that has no subcats can be destroyed" do
+      new_cat = FactoryBot.create(:category, name: "NewCat")
+      new_cat.reload
+      assert_equal "NewCat", new_cat.name
+      new_cat.destroy
+      assert new_cat.destroyed?
+    end
+
+    # should "make sure an improperly destroyed category is made inactive" do
+    #   create_subcats
+    #   assert @cat1.active
+    #   deny @cat1.subcats.empty?
+    #   @cat1.destroy
+    #   @cat1.reload
+    #   deny @cat1.active
+    #   deny @cat1.subcats.empty?
+    #   destroy_subcats
+    # end
+
   end
 
 end
