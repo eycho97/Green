@@ -1,6 +1,6 @@
 class StarredItem < ApplicationRecord
   # get module to help with some functionality
-  # include AppHelpers::Validations
+  include AppHelpers::Validations
 
   # Relationships
   belongs_to :user
@@ -13,5 +13,16 @@ class StarredItem < ApplicationRecord
   # Validations
   validates :user_id, presence: true, numericality: { greater_than: 0, only_integer: true }
   validates :item_id, presence: true, numericality: { greater_than: 0, only_integer: true }
+  validate :user_is_active_in_system
+  validate :item_is_active_in_system
+
+  private
+  def user_is_active_in_system
+    is_active_in_system(:user)
+  end
+
+  def item_is_active_in_system
+    is_active_in_system(:item)
+  end
 
 end

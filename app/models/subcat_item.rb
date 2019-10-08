@@ -1,6 +1,6 @@
 class SubcatItem < ApplicationRecord
   # get module to help with some functionality
-  # include AppHelpers::Validations
+  include AppHelpers::Validations
 
   # Relationships
   belongs_to :subcat
@@ -13,5 +13,16 @@ class SubcatItem < ApplicationRecord
   # Validations
   validates :subcat_id, presence: true, numericality: { greater_than: 0, only_integer: true }
   validates :item_id, presence: true, numericality: { greater_than: 0, only_integer: true }
+  validate :subcat_is_active_in_system
+  validate :item_is_active_in_system
+
+  private
+  def subcat_is_active_in_system
+    is_active_in_system(:subcat)
+  end
+
+  def item_is_active_in_system
+    is_active_in_system(:item)
+  end
 
 end

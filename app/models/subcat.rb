@@ -1,6 +1,7 @@
 class Subcat < ApplicationRecord
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
+  include AppHelpers::Validations
 
   # Relationships
   belongs_to :category
@@ -14,6 +15,11 @@ class Subcat < ApplicationRecord
   # Validations
   validates_presence_of :category_id
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validate :category_is_active_in_system
+
+  def category_is_active_in_system
+    is_active_in_system(:category)
+  end
 
 
 end
