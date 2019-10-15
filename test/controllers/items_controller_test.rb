@@ -45,7 +45,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_equal "Successfully updated Farmer's.", flash[:notice]
 
-    params: { item: { title: nil, blurb: @item.blurb, description: "great market", picture: @item.picture, link: @item.link, featured: true, active: @item.active } }
+    patch item_path(@item), params: { item: { title: nil, blurb: @item.blurb, description: "great market", picture: @item.picture, link: @item.link, featured: true, active: @item.active } }
     assert_template :edit
   end
 

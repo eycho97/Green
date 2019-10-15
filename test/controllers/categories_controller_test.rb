@@ -19,12 +19,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference('Category.count') do
-      post categories_path, parmas: { :category { name: "News", active: true } }
+      post categories_path, params: { category: { name: "News", active: true } }
     end
     assert_equal "Category News was added to the system", flash[:notice]
     assert_redirected_to category_path(Category.last)
 
-    post categories_path, parmas: { :category { name: nil, active: true } }
+    post categories_path, params: { category: { name: nil, active: true } }
     assert_template :new
   end
 
@@ -34,11 +34,11 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get update" do
-    patch category_path(@cat), params: { :category { name: @cat.name, active: false } }
+    patch category_path(@cat), params: { category: { name: @cat.name, active: false } }
     assert_equal "Category News was updated", flash[:notice]
     assert_redirected categories_path
 
-    patch category_path(@cat), params: { :category { name: nil, active: nil } }
+    patch category_path(@cat), params: { category: { name: nil, active: nil } }
     assert_template :edit
   end
 
