@@ -1,13 +1,17 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @item = FactoryBot.create(:item)
+  end
+
   test "should get index" do
-    get items_index_url
+    get items_path
     assert_response :success
   end
 
   test "should get new" do
-    get items_new_url
+    get new_item_path
     assert_response :success
   end
 
