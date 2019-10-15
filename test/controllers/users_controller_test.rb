@@ -8,6 +8,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get users_path
     assert_response :success
+    assert_not_nil assigns(:active_employees)
+    assert_not_nil assigns(:inactive_employees)
+    assert_not_nil assigns(:active_customers)
+    assert_not_nil assigns(:inactive_customers)
   end
 
   test "should get new" do
@@ -20,15 +24,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_path, params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "secret", password_confirmation: "secret", active: true } }
     end
 
+    assert_equal "David Lee was added to the system.", flash[:notice]
     assert_redirected_to user_path(User.last)
   
-    post users_path, params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "secret", password_confirmation: "secret", active: true } }
+    post users_path, params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: nil, role: "customer", password: "secret", password_confirmation: "secret", active: true } }
     assert_template :new
   end
 
   test "should get show" do
     get user_path(@user)
     assert_response :success
+    assert_not_nil assigns(:starred_items)
   end
 
   test "should get edit" do
@@ -37,10 +43,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get update" do
-    patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "secret", password_confirmation: "secret", active: true } }
-    assert_redirected_to users_path
+    patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "nosecret", password_confirmation: "nosecret", active: true } }
+    assert_redirected_to user_path(@user)
 
-    patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "nosecret", password_confirmation: "nosecret", active: true  } }
+    patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: nil, role: "customer", password: "secret", password_confirmation: "secret", active: true  } }
     assert_template :edit
   end
 
