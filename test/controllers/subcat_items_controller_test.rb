@@ -11,7 +11,7 @@ class SubcatItemsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get subcat_items_path
     assert_response :success
-    assert_not_nil assings(:all_subcat_items)
+    assert_not_nil assigns(:all_subcat_items)
   end
 
   test "should get new" do
