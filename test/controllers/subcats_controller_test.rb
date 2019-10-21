@@ -34,16 +34,16 @@ class SubcatsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get update" do
     patch subcat_path(@subcat), params: { subcat: { category_id: @cat.id, name: @subcat.name, active: false } }
-    assert_equal "Sub Category Breaking News was updated", flash[:notice]
+    assert_equal "Sub Category #{@subcat.name} was updated.", flash[:notice]
     assert_redirected_to subcats_path
 
     patch subcat_path(@subcat), params: { subcat: { category_id: @cat.id, name: nil, active: true } }
     assert_template :edit
   end
 
-  test "should get delete" do
-    get subcats_delete_url
-    assert_response :success
-  end
+  # test "should get destroy" do
+  #   get subcats_destroy_path
+  #   assert_response :success
+  # end
 
 end
