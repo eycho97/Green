@@ -46,13 +46,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: "dlee", role: "customer", password: "nosecret", password_confirmation: "nosecret", active: true } }
     assert_redirected_to user_path(@user)
 
+    #double check why #{@user.proper_name} doesn't work
+    assert_equal "Successfully updated David Lee.", flash[:notice]
+
     patch user_path(@user), params: { user: { first_name: "David", last_name: "Lee", email: "dlee@gmail.com", username: nil, role: "customer", password: "secret", password_confirmation: "secret", active: true  } }
     assert_template :edit
   end
 
-  test "should get delete" do
-    get users_delete_url
-    assert_response :success
-  end
+  # test "should get destroy" do
+  #   get users_destroy_url
+  #   assert_response :success
+  # end
 
 end
