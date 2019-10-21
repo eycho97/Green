@@ -19,13 +19,13 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference('Item.count') do
-      post item_path, params: { item: { title: "Farmer's", blurb: "good fruit", description: "", picture: "farmers.png", link: "farmers.com", featured: false, active: true } }
+      post items_path, params: { item: { title: "Farmer's", blurb: "good fruit", description: "", picture: "farmers.png", link: "farmers.com", featured: false, active: true } }
     end
 
-    assert_equal "Successfully added #{@item.title} to the system.", flash[:notice]
+    assert_equal "Successfully added Farmer's to the system.", flash[:notice]
     assert_redirected_to item_path(Item.last)
   
-    post item_path, params: { item: { title: nil, blurb: "good fruit", description: "", picture: "farmers.png", link: "farmers.com", featured: false, active: true } }
+    post items_path, params: { item: { title: nil, blurb: "good fruit", description: "", picture: "farmers.png", link: "farmers.com", featured: false, active: true } }
     assert_template :new
   end
 
@@ -43,7 +43,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     patch item_path(@item), params: { item: { title: @item.title, blurb: @item.blurb, description: "", picture: @item.picture, link: @item.link, featured: true, active: @item.active } }
     assert_redirected_to item_path(@item)
 
-    assert_equal "Successfully updated #{@item.title}", flash[:notice]
+    assert_equal "Successfully updated #{@item.title}.", flash[:notice]
 
     patch item_path(@item), params: { item: { title: nil, blurb: @item.blurb, description: "great market", picture: @item.picture, link: @item.link, featured: true, active: @item.active } }
     assert_template :edit

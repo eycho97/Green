@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to item_path(@item), notice: "Successfully added #{@item.title} to the system"
+      redirect_to item_path(@item), notice: "Successfully added #{@item.title} to the system."
     else
       render action: 'new'
     end
@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: "Successfully updated #{@item.title}"
+      redirect_to item_path(@item), notice: "Successfully updated #{@item.title}."
     else
       render action: 'edit'
     end
