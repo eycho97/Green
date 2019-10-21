@@ -1,22 +1,48 @@
 class ItemsController < ApplicationController
-  # def index
+  before_action :set_item, only: [:show, :edit, :update]
+  def index
+    @active_items = Item.active.alphabetical.all
+    @inactive_items = Item.inactive.alphabetical.all
+  end
+
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to item_path(@item), notice: "Successfully added #{@item.title} to the system"
+    else
+      render action: 'new'
+    end
+  end
+
+  def show
+    @starred = @item.starred_items.all
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "Successfully updated #{@item.title}"
+    else
+      render action: 'edit'
+    end
+  end
+
+  # def destroy
   # end
 
-  # def new
-  # end
+  private
 
-  # def create
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-  # def show
-  # end
-
-  # def edit
-  # end
-
-  # def update
-  # end
-
-  # def delete
-  # end
+  def item_params
+    params.require(:item).permit(:title, :blurb, :description, :picture, :link, :featured, :active)
+  end
 end
