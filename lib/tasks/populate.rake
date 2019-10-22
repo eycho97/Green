@@ -12,7 +12,9 @@ namespace :db do
     Rake::Task['db:test:prepare'].invoke
 
     # Get the faker gem (see docs at http://faker.rubyforge.org/rdoc/)
-    require 'factory_bot_rails' 
+    require 'factory_bot_rails'
+    require 'populator'
+    include Populator
 
     # Create Categories
     create_categories

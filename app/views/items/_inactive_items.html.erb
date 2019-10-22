@@ -1,0 +1,12 @@
+<% unless @inactive_items.empty? %>
+  <div class="card lighten-4">
+    <div class="card-content">
+      <span class="card-title">Inactive Items</span>
+      <ul>
+        <% for item in @inactive_items %>
+          <li><%= link_to item.title, item_path(item) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

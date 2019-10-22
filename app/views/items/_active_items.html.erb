@@ -1,0 +1,33 @@
+<h4 >Active Items</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Title</th>
+    <th>Blurb</th>
+    <th>link</th>
+    <th>featured</th>
+    <th>active</th>
+  </thead>
+  <% for item in @active_items %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to item.title, item_path(item) %></td>
+      <td><%= item.blurb %></td>
+      <td><%= item.link %></td>
+      <td><%= item.featured %></td>
+      <td><%= item.active %></td>
+    <td class="align_center">
+      <% if can? :edit, item %>
+        <%= link_to edit_item_path(item) do %>
+              <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+        <% end %>
+        <% if can? :destroy, item %>
+          <%= link_to(item_path(item), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+              <i class="material-icons">delete</i>
+          <% end %>
+        <% end %>
+    </td>
+    </tr>
+  <% end %>
+</table>
