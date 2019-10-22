@@ -42,9 +42,16 @@ gem 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# UI gems
+# Other gems
+gem 'chronic', '0.10.2'
+gem 'materialize-sass'
+gem 'materialize-form'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
+gem 'cancancan', '2.1.2'
+gem 'time_date_helpers'
+gem 'carrierwave'
+gem 'best_in_place', '~> 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
