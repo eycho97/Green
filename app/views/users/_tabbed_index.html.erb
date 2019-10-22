@@ -1,0 +1,13 @@
+<div id="tabbed">
+  <tabs>
+
+    <tab name="customers" v-bind:selected="true">
+      <%= render :partial => "user_list", locals: {users: @active_customers, state: 'customers'} %>
+    </tab>
+
+    <tab name="employees">
+      <%= render :partial => "user_list", locals: {users: @active_employees, state: 'employees'} %>
+    </tab>
+
+  </tabs>
+</div>

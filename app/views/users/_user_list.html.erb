@@ -1,0 +1,35 @@
+<h4><%= state.capitalize %></h4>
+
+<% if users.empty? %>
+  <p>There are no <%= state.downcase %> at this time.</p>
+<% else %>
+
+  <table class="striped highlight">
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th class="align_center">Options</th>
+    </thead>
+    <% for user in users %>
+      <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+        <td><%= link_to user.proper_name, user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td><%= user.role %></td>
+
+      <td class="align_center">
+        <%= link_to edit_user_path(user) do %>
+            <i class="material-icons">edit</i>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+
+        <%= link_to(user_path(user), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+        <% end %>
+      </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
