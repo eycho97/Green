@@ -10,6 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
-//= require turbolinks
+//= require materialize-sprockets
+//= require materialize-form
+//= require best_in_place
 //= require_tree .
+
+// @import "materialize";
+// @import "https://fonts.googleapis.com/icon?family=Material+Icons";
