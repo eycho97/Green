@@ -13,8 +13,8 @@ module Populator
       40.times do |i|
         fn = Faker::Name.first_name
         ln = Faker::Name.last_name
-        em = Faker
-        FactoryBot.create(:user, first_name: "#{fn}", last_name: "#{ln}")
+        em = Faker::Internet.email
+        FactoryBot.create(:user, first_name: "#{fn}", last_name: "#{ln}", email: "#{em}", username: "#{fn}")
       end
 
     end

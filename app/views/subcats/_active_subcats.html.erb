@@ -1,0 +1,21 @@
+<h4 >Active Sub Categories</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Name</th>
+  </thead>
+  <% for subcat in @active_subcats %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to subcat.name, subcat_path(subcat) %></td>
+    <td class="align_center">
+      <%= link_to edit_subcat_path(subcat) do %>
+            <i class="material-icons">edit</i>
+      <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp; 
+      <%= link_to(subcat_path(subcat), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+          <i class="material-icons">delete</i>
+      <% end %>
+    </td>
+    </tr>
+  <% end %>
+</table>
