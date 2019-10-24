@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_category, only: [:show, :edit, :update]
 
   def index
     @active_cats = Category.active.all
@@ -18,6 +18,10 @@ class CategoriesController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def show
+    @cat_subcats = @cat.subcats.all
   end
 
   def edit

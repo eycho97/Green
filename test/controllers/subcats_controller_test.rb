@@ -27,6 +27,11 @@ class SubcatsControllerTest < ActionDispatch::IntegrationTest
     assert_template :new
   end
 
+  test "should get show" do
+    get subcat_path(@subcat)
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_subcat_path(@subcat)
     assert_response :success

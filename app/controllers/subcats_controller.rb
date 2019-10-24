@@ -1,5 +1,5 @@
 class SubcatsController < ApplicationController
-  before_action :set_subcat, only: [:edit, :update]
+  before_action :set_subcat, only: [:show, :edit, :update]
 
   def index
     @active_subcats = Subcat.active.alphabetical.all
@@ -17,6 +17,10 @@ class SubcatsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def show
+    @subcat_items = @subcat.subcat_items.all
   end
 
   def edit

@@ -28,6 +28,11 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_template :new
   end
 
+  test "should get show" do
+    get category_path(@cat)
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_category_path(@cat)
     assert_response :success
