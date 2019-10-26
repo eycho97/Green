@@ -60,20 +60,20 @@ class SubcatTest < ActiveSupport::TestCase
       assert new_subcat.destroyed?
     end
 
-    # should "make sure an improperly destroyed subcat is made inactive" do
-    #   create_items
-    #   create_subcat_items
-    #   assert @subcat1.active
-    #   deny @subcat1.subcat_items.empty?
-    #   @subcat1.destroy
-    #   @subcat1.reload
-    #   # verify the subcat is now inactive
-    #   deny @subcat1.active
-    #   # ... and that the subcat items are still there
-    #   deny @subcat1.subcat_items.empty?
-    #   destroy_subcat_items
-    #   destroy_items
-    # end
+    should "make sure an improperly destroyed subcat is made inactive" do
+      create_items
+      create_subcat_items
+      assert @subcat1.active
+      deny @subcat1.subcat_items.empty?
+      @subcat1.destroy
+      @subcat1.reload
+      # verify the subcat is now inactive
+      deny @subcat1.active
+      # ... and that the subcat items are still there
+      deny @subcat1.subcat_items.empty?
+      destroy_subcat_items
+      destroy_items
+    end
 
   end
 

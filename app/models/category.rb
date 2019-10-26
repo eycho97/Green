@@ -21,11 +21,13 @@ class Category < ApplicationRecord
   private
   def is_destroyable?
     @destroyable = self.subcats.empty?
+    self.subcats.empty?
   end
 
   def make_inactive_if_trying_to_destroy
     if !@destroyable.nil? && @destroyable == false
-      self.update_attribute(:active, false)
+      self.subcats.each{ |subcat| subcat.make_inactive }
+      self.make_inactive
     end
     @destroyable = nil
   end

@@ -3,10 +3,12 @@
 <table class="striped highlight">
   <thead>
     <th>Name</th>
+    <th>Number of Items</th>
   </thead>
   <% for subcat in @cat_subcats %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
       <td><%= link_to subcat.name, subcat_path(subcat) %></td>
+      <td><%= subcat.subcat_items.count %></td>
     <td class="align_center">
       <%= link_to edit_subcat_path(subcat) do %>
             <i class="material-icons">edit</i>

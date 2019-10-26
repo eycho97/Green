@@ -48,12 +48,16 @@ class CategoryTest < ActiveSupport::TestCase
 
     should "make sure an improperly destroyed category is made inactive" do
       create_subcats
+      create_items
+      create_subcat_items
       assert @cat1.active
       deny @cat1.subcats.empty?
       @cat1.destroy
       @cat1.reload
       deny @cat1.active
       deny @cat1.subcats.empty?
+      destroy_subcat_items
+      destroy_items
       destroy_subcats
     end
 

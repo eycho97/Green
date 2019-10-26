@@ -32,11 +32,12 @@ class Subcat < ApplicationRecord
   #Callback methods
   def is_destroyable?
     @destroyable = self.subcat_items.empty?
+    self.subcat_items.empty?
   end
 
   def make_inactive_if_trying_to_destroy
     if !@destroyable.nil? && @destroyable == false
-      self.update_attribute(:active, false)
+      self.make_inactive
     end
     @destroyable = nil
   end

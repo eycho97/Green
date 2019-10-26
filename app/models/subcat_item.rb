@@ -13,13 +13,13 @@ class SubcatItem < ApplicationRecord
   # Validations
   validates :subcat_id, presence: true, numericality: { greater_than: 0, only_integer: true }
   validates :item_id, presence: true, numericality: { greater_than: 0, only_integer: true }
-  validate :subcat_is_active_in_system
+  # validate :subcat_is_active_in_system
   validate :item_is_active_in_system
 
   private
-  def subcat_is_active_in_system
-    is_active_in_system(:subcat)
-  end
+  # def subcat_is_active_in_system
+  #   is_active_in_system(:subcat)
+  # end
 
   def item_is_active_in_system
     is_active_in_system(:item)
