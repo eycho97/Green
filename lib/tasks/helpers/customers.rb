@@ -10,12 +10,12 @@ module Populator
       @darian = FactoryBot.create(:user, first_name: "Darian", last_name: "Fard", email: "dfard@gmail.com", username: "dfard", active: false)
       @tim = FactoryBot.create(:user, first_name: "Tim", last_name: "Cook", email: "timcook@gmail.com", username: "timcook", active: false)
 
-      40.times do |i|
-        fn = Faker::Name.first_name
-        ln = Faker::Name.last_name
-        em = Faker::Internet.email
-        FactoryBot.create(:user, first_name: "#{fn}", last_name: "#{ln}", email: "#{em}", username: "#{fn}")
-      end
+      # 40.times do |i|
+      #   fn = Faker::Name.first_name
+      #   ln = Faker::Name.last_name
+      #   em = Faker::Internet.email
+      #   FactoryBot.create(:user, first_name: "#{fn}", last_name: "#{ln}", email: "#{em}", username: "#{fn}")
+      # end
 
     end
   end
