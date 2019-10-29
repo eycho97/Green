@@ -52,7 +52,7 @@ class CategoryTest < ActiveSupport::TestCase
       create_subcat_items
       assert @cat1.active
       deny @cat1.subcats.empty?
-      @cat1.destroy
+      deny @cat1.destroy
       @cat1.reload
       deny @cat1.active
       deny @cat1.subcats.empty?
