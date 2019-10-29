@@ -1,2 +1,3 @@
-<h1>Subcats#new</h1>
-<p>Find me in app/views/subcats/new.html.erb</p>
+<%= render partial: "partials/form_structure", locals: {object: @subcat, 
+                                                        type_of_form: "New Sub Category",
+                                                        fields: "fields"} %>
