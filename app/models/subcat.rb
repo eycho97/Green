@@ -17,22 +17,36 @@ class Subcat < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validate :category_is_active_in_system
 
-  private
-  def category_is_active_in_system
-    is_active_in_system(:category)
+  # Callbacks
+  before_destroy do 
+    check_if_subcat_items_empty
+    if errors.present?
+      @destroyable = false
+      throw(:abort)
+    end
   end
 
   # Callbacks
-  before_destroy :is_destroyable?
   after_rollback :make_inactive_if_trying_to_destroy
  
   # Other methods
   attr_reader :destroyable
 
+  private
+  def category_is_active_in_system
+    is_active_in_system(:category)
+  end
+
   #Callback methods
-  def is_destroyable?
-    @destroyable = self.subcat_items.empty?
+
+  def no_subcat_items?
     self.subcat_items.empty?
+  end
+
+  def check_if_subcat_items_empty
+    unless no_subcat_items?
+      errors.add(:base, "Subcategory cannot be deleted because it contains subcat items, but its status has been set to inactive.")
+    end
   end
 
   def make_inactive_if_trying_to_destroy

@@ -25,7 +25,7 @@ class Category < ApplicationRecord
   # Other methods
   attr_reader :destroyable
   
-  #private
+  private
   def check_if_subcats_empty
     unless no_subcats?
       errors.add(:base, "Category cannot be deleted because it contains sub-categories, but its status has been set to inactive.")
