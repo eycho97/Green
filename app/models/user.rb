@@ -44,5 +44,10 @@ class User < ApplicationRecord
   def number_of_starred_items
     return StarredItem.for_user(self).all.count
   end
+  
+  # login by username
+  def self.authenticate(username, password)
+    find_by_username(username).try(:authenticate, password)
+  end
 
 end
