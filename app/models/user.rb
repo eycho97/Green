@@ -28,6 +28,11 @@ class User < ApplicationRecord
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
 
   # Other methods
+  def role?(authorized_role)
+    return false if role.nil?
+    role.downcase.to_sym == authorized_role
+  end
+  
   def name
     last_name + ", " + first_name
   end

@@ -1,23 +1,5 @@
-<h4 ><%= @cat.name %> Sub Categories</h4>
-
-<table class="striped highlight">
-  <thead>
-    <th>Name</th>
-    <th>Number of Items</th>
-  </thead>
-  <% for subcat in @cat_subcats %>
-    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
-      <td><%= link_to subcat.name, subcat_path(subcat) %></td>
-      <td><%= subcat.subcat_items.count %></td>
-    <td class="align_center">
-      <%= link_to edit_subcat_path(subcat) do %>
-            <i class="material-icons">edit</i>
-      <% end %>
-      &nbsp;&nbsp;&nbsp;&nbsp; 
-      <%= link_to(subcat_path(subcat), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-          <i class="material-icons">delete</i>
-      <% end %>
-    </td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial: "partials/structure2", locals: {model_name: "category", 
+                                                         object: @cat,
+                                                         primary: "category_details", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>

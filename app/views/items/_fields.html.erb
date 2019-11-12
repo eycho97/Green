@@ -4,5 +4,12 @@
 <%= f.label :picture%><br>
 <%= f.file_field :picture %>
 <%= f.input :link %>
-<%= f.input :featured %>
-<%= f.input :active %>
+<label>
+  <%= f.check_box :featured %>
+  <span>Featured?</span>
+</label>
+<br>
+<label>
+  <%= f.check_box :active %>
+  <span>Active?</span>
+</label>

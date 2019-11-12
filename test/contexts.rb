@@ -1,4 +1,5 @@
 # require needed files
+require './test/sets/abilities_contexts'
 require './test/sets/category_contexts'
 require './test/sets/subcat_contexts'
 require './test/sets/item_contexts'
@@ -10,6 +11,7 @@ require './test/sets/starred_item_contexts'
 
 module Contexts
   # explicitly include all sets of contexts used for testing 
+  include Contexts::AbilityContexts
   include Contexts::CategoryContexts
   include Contexts::SubcatContexts
   include Contexts::ItemContexts
