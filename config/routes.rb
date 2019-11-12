@@ -7,6 +7,14 @@ Rails.application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
   get 'home/search', to: 'home#search', as: :search
 
+  # Authentication routes
+  resources :sessions
+  resources :users
+  get 'signup', to: 'users#new', as: :signup
+  get 'user/edit', to: 'users#edit', as: :edit_current_user
+  get 'login', to: 'sessions#new', as: :login
+  get 'logout', to: 'sessions#destroy', as: :logout
+
   resources :categories
   resources :items
   resources :subcats

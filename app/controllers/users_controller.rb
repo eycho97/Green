@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :check_login
+  before_action :check_login, only: [:show, :edit, :update]
   authorize_resource
 
   def index

@@ -19,6 +19,11 @@
 
 // @import "materialize";
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+$('#subcat_category_id').formSelect();
+$('#user_role').formSelect();
+
+
 // $(window).bind("load", function () {
 //   var footer = $("#footer");
 //   var pos = footer.position();
