@@ -22,47 +22,55 @@
 
 $('#subcat_category_id').formSelect();
 $('#user_role').formSelect();
+$(".dropdown-trigger").dropdown({hover: false});
 
+$(document).ready(function(){
+  $('select').formSelect();
+  $(".dropdown-trigger").dropdown({hover: false});
+  $('.tabs').tabs();
+  $('.collapsible').collapsible();
+});
 
-// $(window).bind("load", function () {
-//   var footer = $("#footer");
-//   var pos = footer.position();
-//   var height = $(window).height();
-//   height = height - pos.top;
-//   height = height - footer.height();
-//   if (height > 0) {
-//       footer.css({
-//           'margin-top': height + 'px'
-//       });
-//   }
-// });
+$(window).bind("load", function () {
+  var footer = $("#footer");
+  var pos = footer.position();
+  var height = $(window).height();
+  height = height - pos.top;
+  height = height - footer.height();
+  if (height > 0) {
+      footer.css({
+          'margin-top': height + 'px'
+      });
+  }
+});
 
-// // Flash fade
-// $(function() {
-//   $('.alert-box').fadeIn('normal', function() {
-//      $(this).delay(3700).fadeOut();
-//   });
-// });
+// Flash fade
+$(function() {
+  $('.alert-box').fadeIn('normal', function() {
+     $(this).delay(3700).fadeOut();
+  });
+});
 
-// // Carousel function
-// $(document).ready(function(){
-//  $('.carousel').carousel();
-// });
+// Carousel function
+$(document).ready(function(){
+  $('.carousel').carousel();
+  $('.tabs').tabs();
+});
 
-// // Best in place functionality
-// $(document).ready(function() {
-//  jQuery(".best_in_place").best_in_place();
-// });
+// Best in place functionality
+$(document).ready(function() {
+ jQuery(".best_in_place").best_in_place();
+});
 
-// // Search submit on enter
-// $(document).ready(function() {
-//  function submitForm() {
-//    document.getElementById("search").submit();
-//  }
-//  document.onkeydown = function () {
-//    if (window.event.keyCode == '13') {
-//        submitForm();
-//    }
-//  }
-// });
+// Search submit on enter
+$(document).ready(function() {
+ function submitForm() {
+   document.getElementById("search").submit();
+ }
+ document.onkeydown = function () {
+   if (window.event.keyCode == '13') {
+       submitForm();
+   }
+ }
+});
 

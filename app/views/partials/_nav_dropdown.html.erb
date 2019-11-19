@@ -1,0 +1,30 @@
+<ul id="item" class="dropdown-content">
+  <li><%= link_to "Item List", items_path%></li>
+  <li><%= link_to "New Item", new_item_path %></li>
+</ul>
+
+<ul id="user" class="dropdown-content">
+  <li><%= link_to "User List", users_path %></li>
+  <li><%= link_to "New User", new_user_path %></li>
+</ul>
+
+
+<ul id="account" class="dropdown-content">
+  <% if logged_in? %>
+    <!-- manager -->
+    <% if current_user.role?(:manager) %>
+      <li><%= link_to "My Account", user_path(current_user) %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+  	
+    <!-- customer -->
+    <% elsif current_user.role?(:customer) %>
+  		<li><%= link_to "My Account", user_path(current_user) %></li>
+  	  <li><%= link_to "Logout", logout_path %></li>
+
+    <!-- admin -->
+    <% else %>
+      <li><%= link_to "My Account", user_path(current_user) %></li>
+  	  <li><%= link_to "Logout", logout_path %></li>
+    <% end %>
+	<% end %>
+</ul>

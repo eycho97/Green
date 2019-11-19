@@ -21,10 +21,11 @@
 
           <!-- MAIN CONTENT OF TEMPLATE GOES HERE -->
           <%= yield %>
-
+          
         </div>
       </div>
     </div>
+    <%= render :partial => "partials/footer"%>
 
     <%= javascript_include_tag 'application' %>
   </body>
