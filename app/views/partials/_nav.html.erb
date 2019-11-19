@@ -14,7 +14,7 @@
         <li><a href="/signup"><i class="material-icons right">assignment</i>Sign Up</a></li>
       <% elsif logged_in? && current_user.role?(:customer)%>
         <% for cat in Category.active %>
-          <li><%= link_to cat.name, category_path(cat)%></li>
+          <li><a class = "dropdown-trigger" href="/categories" data-target=<%=cat.name%>><%= cat.name %><i class="material-icons right">arrow_drop_down</i></a></li>
         <% end %>
         <li><a class = "dropdown-trigger" href="/users" data-target="account">Account<i class="material-icons right">arrow_drop_down</i></a></li>
       <% elsif logged_in? && current_user.role?(:manager)%>

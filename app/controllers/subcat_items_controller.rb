@@ -7,6 +7,7 @@ class SubcatItemsController < ApplicationController
   def new
     @subitem = SubcatItem.new
   end
+  
 
   def create
     @subitem = SubcatItem.new(subcat_item_params)

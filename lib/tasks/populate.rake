@@ -30,6 +30,9 @@ namespace :db do
 
     # Create Customers
     create_customers
+
+    # Create Subcat Items
+    create_subcat_items
     
           
   end

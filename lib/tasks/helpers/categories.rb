@@ -2,7 +2,7 @@ module Populator
   module Categories
 
     def create_categories
-      @cat1 = FactoryBot.create(:category)
+      @cat1 = FactoryBot.create(:category, name: 'Clothing')
       @cat2 = FactoryBot.create(:category, name: 'Restaurants')
       @cat3 = FactoryBot.create(:category, name: 'Food')
       @cat4 = FactoryBot.create(:category, name: 'Energy')

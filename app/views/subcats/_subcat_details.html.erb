@@ -1,0 +1,14 @@
+<h4 ><%= @subcat.name %></h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Name</th>
+    <th>Number of Items</th>
+  </thead>
+  <% for si in @subcat_items %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to si.item.title, item_path(si) %></td>
+      <td><%= si.item.blurb %></td>
+    </tr>
+  <% end %>
+</table>
