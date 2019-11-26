@@ -3,7 +3,7 @@
 <nav id="nav">
   <div class="nav-wrapper">
     <div class="container">
-      <a href="/home" class="brand-logo"><%= image_tag 'temp-logo.png'%></a>
+      <a href="/home"><%= image_tag 'temp-logo.png'%></a>
       <ul class="right hide-on-med-and-down">
       <% for cat in nav_cats.active %>
         <li><a class = "dropdown-trigger" href="/categories" data-target=<%=cat.name%>><%= cat.name %><i class="material-icons right">arrow_drop_down</i></a></li>

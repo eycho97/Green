@@ -29,12 +29,14 @@ class Ability
     elsif user.role? :customer
       #israel's way
       can [:home, :about, :privacy, :contact], :home
-      can [:read, :index, :show], [Item, Category, Subcat, StarredItem, SubcatItem]
+      can [:read, :index, :show], [Item, StarredItem, SubcatItem]
+      can [:show], [Category, Subcat]
       can [:new], [StarredItem]
       can [:show, :edit, :create, :update], User, :id => user.id
     else
       #can read about items
-      can [:read, :index, :show], [Item, Category, Subcat, StarredItem, SubcatItem] #not inventory level tho
+      can [:read, :index, :show], [Item, StarredItem, SubcatItem] #not inventory level tho
+      can [:show], [Category, Subcat]
       #can create an account
       can :create, User
     end

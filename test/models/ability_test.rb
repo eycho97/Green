@@ -41,6 +41,8 @@ class AbilityTest < ActiveSupport::TestCase
       create_guest_abilities
       deny @guest_ability.can? :manage, :all
       assert @guest_ability.can? :read, Item
+      assert @guest_ability.can? :show, Category
+      assert @guest_ability.can? :show, Subcat
       delete_guest_abilities
     end
   end
