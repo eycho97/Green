@@ -1,5 +1,8 @@
 class SubcatItemsController < ApplicationController
 
+  before_action :check_login, only: [:edit, :update, :destroy, :new, :create]
+  authorize_resource
+
   def index
     @all_subcat_items = SubcatItem.all
   end

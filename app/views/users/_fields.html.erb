@@ -5,5 +5,7 @@
 <%= f.input :password, label_html: { class: 'active' } %>
 <%= f.input :password_confirmation, label_html: { class: 'active' } %>
 <br><br><br><br><br><br><br>
-<%= f.input :role, collection: User::ROLES, prompt: 'Select...'%>
+<% if current_user.role?(:vet) %>
+  <%= f.input :role, collection: User::ROLES, prompt: 'Select...'%>
+<% end %>
 <%= f.input :active %>

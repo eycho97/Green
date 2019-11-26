@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
+
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :check_login, only: [:edit, :update, :destroy, :new, :create]
+  authorize_resource
+
   def index
     @active_items = Item.active.alphabetical.all
     @inactive_items = Item.inactive.alphabetical.all

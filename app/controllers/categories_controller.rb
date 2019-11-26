@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   
   before_action :set_category, only: [:show, :edit, :update]
+  before_action :check_login, only: [:edit, :update, :destroy, :new, :create]
+  authorize_resource
 
   def index
     @active_cats = Category.active.all

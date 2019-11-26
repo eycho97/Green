@@ -1,5 +1,8 @@
 class SubcatsController < ApplicationController
+
   before_action :set_subcat, only: [:show, :edit, :update]
+  before_action :check_login, only: [:edit, :update, :destroy, :new, :create]
+  authorize_resource
 
   def index
     @active_subcats = Subcat.active.alphabetical.all

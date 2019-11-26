@@ -1,5 +1,8 @@
 class StarredItemsController < ApplicationController
   
+  before_action :check_login
+  authorize_resource
+
   def index
     @starred_items = StarredItem.all
   end
