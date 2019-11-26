@@ -1,23 +1,11 @@
-<%= render "partials/nav_dropdown" %>
+<%= render "partials/nav/nav_dropdown" %>
 
 <nav id="nav">
   <div class="nav-wrapper">
     <div class="container">
       <a href="/home" class="brand-logo"><%= image_tag 'temp-logo.png'%></a>
       <ul class="right hide-on-med-and-down">
-      <% if !logged_in? %>
-        <li><%= link_to 'Items', items_path %></li>
-        <li><%= link_to 'Categories', categories_path %></li>
-        <li><%= link_to 'Subcats', subcats_path %></li>
-        <li><%= link_to 'Users', users_path %></li>
-        <li><a href="/login"><i class="material-icons right">exit_to_app</i>Login</a></li>
-        <li><a href="/signup"><i class="material-icons right">assignment</i>Sign Up</a></li>
-      <% elsif logged_in? && current_user.role?(:customer)%>
-        <% for cat in nav_cats.active %>
-          <li><a class = "dropdown-trigger" href="/categories" data-target=<%=cat.name%>><%= cat.name %><i class="material-icons right">arrow_drop_down</i></a></li>
-        <% end %>
-        <li><a class = "dropdown-trigger" href="/users" data-target="account">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-      <% elsif logged_in? && current_user.role?(:manager)%>
+      <% if logged_in? && current_user.role?(:manager)%>
       <li><%= link_to 'Items', items_path %></li>
         <li><%= link_to 'Categories', categories_path %></li>
         <li><%= link_to 'Subcats', subcats_path %></li>
