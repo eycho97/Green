@@ -29,9 +29,9 @@
 	<% end %>
 </ul>
 
-<% for cat in Category.active %>
+<% for cat in nav_cats.active %>
   <ul id=<%= cat.name%> class="dropdown-content">
-  <% for sc in Subcat.for_category(cat).all %>
+  <% for sc in nav_subcats.for_category(cat).all %>
     <li><%= link_to sc.name, subcat_path(sc) %></li>
   <% end %>
   </ul>

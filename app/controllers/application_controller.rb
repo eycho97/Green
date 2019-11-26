@@ -19,6 +19,16 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def nav_cats
+    @nav_cats ||= Category.active.all
+  end
+  helper_method :nav_cats
+
+  def nav_subcats
+    @nav_subcats ||= Subcat.active
+  end
+  helper_method :nav_subcats
   
   def logged_in?
     current_user
