@@ -1,0 +1,25 @@
+<h4 >Starred Items</h4>
+
+<table class="striped highlight">
+  <thead>
+    <th>Title</th>
+    <th>link</th>
+    <th>featured</th>
+  </thead>
+  <% for si in @starred_items %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to si.item.title, item_path(item) %></td>
+      <td><%= si.item.link %></td>
+      <td><%= si.item.featured %></td>
+    <td class="align_center">
+      <%= link_to edit_starred_item_path(si) do %>
+            <i class="material-icons">edit</i>
+      <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp; 
+      <%= link_to(starred_item_path(si), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+          <i class="material-icons">delete</i>
+      <% end %>
+    </td>
+    </tr>
+  <% end %>
+</table>

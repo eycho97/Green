@@ -38,7 +38,7 @@ class Ability
       can [:read, :index, :show], [Item, StarredItem, SubcatItem] #not inventory level tho
       can [:show], [Category, Subcat]
       #can create an account
-      can :create, User
+      can [:new, :create], User
     end
   end
 end

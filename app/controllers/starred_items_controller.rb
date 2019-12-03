@@ -5,6 +5,9 @@ class StarredItemsController < ApplicationController
 
   def index
     @starred_items = StarredItem.all
+    if (logged_in? && current_user.role?(:customer))
+      @my_starred = current_user.starred_items.all
+    end
   end
 
   def new

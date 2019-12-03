@@ -1,2 +1,7 @@
-<h1>StarredItems#index</h1>
-<p>Find me in app/views/starred_items/index.html.erb</p>
+<%= render partial: "partials/structure1", locals: {model_name: "starred_item", 
+                                                         primary: "starred_items", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>
+
+<p>&nbsp;</p>
+<%# <%= render :partial => "partials/add_new_object", locals: {model_name: 'starred_item'} %>

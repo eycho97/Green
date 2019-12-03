@@ -19,6 +19,7 @@
     <!-- customer -->
     <% elsif current_user.role?(:customer) %>
   		<li><%= link_to "My Account", user_path(current_user) %></li>
+      <li><%= link_to "Starred Items", starred_items_path%>
   	  <li><%= link_to "Logout", logout_path %></li>
 
     <!-- admin -->
