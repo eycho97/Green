@@ -161,7 +161,7 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.1)
-    puma (3.12.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-contrib (2.1.0)
       rack (~> 2.0)
@@ -290,7 +290,7 @@ DEPENDENCIES
   minitest-rails (= 3.0.0)
   minitest-reporters (= 1.1.19)
   mocha
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.7)
   rails-controller-testing (= 1.0.2)
   sass-rails (~> 5.0)
