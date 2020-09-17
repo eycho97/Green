@@ -28,11 +28,11 @@
 
           <!-- MAIN CONTENT OF TEMPLATE GOES HERE -->
           <%= yield %>
-          
+          <%= render :partial => "partials/footer"%>
         </div>
       </div>
     </div>
-    <%= render :partial => "partials/footer"%>
+    
 
     <%= javascript_include_tag 'application' %>
   </body>

@@ -20,16 +20,19 @@
 // @import "materialize";
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+
 $('#subcat_category_id').formSelect();
 $('#user_role').formSelect();
 $(".dropdown-trigger").dropdown({hover: false});
+$('.sidenav').sidenav();
+$('.collapsible').collapsible();
 
 $(document).ready(function(){
   $('select').formSelect();
   $(".dropdown-trigger").dropdown({hover: false});
   $('.tabs').tabs();
-  $('.collapsible').collapsible();
 });
+
 
 $(window).bind("load", function () {
   var footer = $("#footer");

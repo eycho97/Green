@@ -1,15 +1,24 @@
 <%= render "partials/nav/nav_dropdown" %>
 
-<nav id="nav">
-  <div class="nav-wrapper">
-    <div class="container">
-      <a href="/home"><%= image_tag 'temp-logo.png'%></a>
-      <ul class="right hide-on-med-and-down">
+
+<ul id="slide-out" class="sidenav sidenav-fixed">
+  <a href="/home"><%= image_tag 'temp-logo.png'%></a>
+  <li class="no-padding">
+  <li><a class = "dropdown-trigger" href="/users" data-target="account">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    <ul class="collapsible collapsible-accordion">
       <% for cat in nav_cats.active %>
-        <li><a class = "dropdown-trigger" href="/categories" data-target=<%=cat.name%>><%= cat.name %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <li>
+          <a class="collapsible-header"><%= cat.name %><i class="material-icons right">arrow_drop_down</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <% for sc in nav_subcats.for_category(cat).all %>
+                <li><%= link_to sc.name, subcat_path(sc) %></li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
       <% end %>
-      <li><a class = "dropdown-trigger" href="/users" data-target="account">Account<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </ul>
+  </li>
+</ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
